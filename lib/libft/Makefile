@@ -6,7 +6,7 @@
 #    By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 16:27:33 by pramos-m          #+#    #+#              #
-#    Updated: 2023/01/21 17:32:50 by pramos-m         ###   ########.fr        #
+#    Updated: 2023/02/18 15:04:53 by pramos-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SOURCES = ft_atoi.c \
 			ft_strchr.c \
 			ft_strrchr.c \
 			ft_strncmp.c \
+			ft_strrncmp.c \
 			ft_memcmp.c \
 			ft_strnstr.c \
 			ft_calloc.c \

@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 17:44:17 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/02/04 16:20:13 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/02/18 13:25:25 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char				*ft_strnstr(const char *haystack,
 						const char *needle, size_t len);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
+int					ft_strrncmp(const char *s1, const char *s2, size_t n);
 char				*ft_itoa(int n);
 int					ft_atoi(const char *str);
 long long int		ft_atol(const char *str);
