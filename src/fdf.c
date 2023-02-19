@@ -18,26 +18,35 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		ft_error_handler(ERRCODE1);
 	else
-		ft_read_check(av[1]);
+		ft_check_map(av[1]);
 	return (0);
 }
 
-void	ft_read_check(char *route)
+void ft_check_map(char *route)
 {
-	char		buffer[BUFFER_TAMAÑO + 1];
-	static char	*content = NULL;
-	int			bytes_read;
-	int			fd;
+	int	fd;
 
 	if (ft_strrncmp(route, ".fdf", 4))
 		ft_error_handler(ERRCODE2);
 	fd = open(route, O_RDONLY);
 	if (fd == -1)
-		ft_error_handler(ERRCODE0);
+		ft_error_handler(ERRCODE3);
+	if (!ft_read_check(&fd))
+		ft_error_handler(ERRCODE3);
+	if (close(fd) == -1)
+		ft_error_handler(ERRCODE3);
+}
+
+int	ft_read_check(int *fd)
+{
+	char		buffer[BUFFER_TAMAÑO + 1];
+	static char	*content = NULL;
+	int			bytes_read;
+
 	buffer[0] = '\0';
 	bytes_read = read(fd, buffer, BUFFER_TAMAÑO);
 	if (bytes_read == -1)
-		ft_error_handler(ERRCODE0);
+		ft_error_handler(ERRCODE3);
 	while (bytes_read > 0)
 	{
 		buffer[bytes_read] = '\0';
@@ -45,9 +54,8 @@ void	ft_read_check(char *route)
 		ft_bzero(buffer, BUFFER_TAMAÑO);
 		bytes_read = read(fd, buffer, BUFFER_TAMAÑO);
 	}
-	if (close(fd) == -1)
-		ft_error_handler(ERRCODE0);
 	ft_printf("%s", content);
+	return (1);
 }
 
 // int	main(void)

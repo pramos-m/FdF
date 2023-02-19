@@ -27,12 +27,14 @@
 # define ERRCODE1	(int)1
 # define ERRCODE2	(int)2
 # define ERRCODE3	(int)3
+# define ERRCODE4	(int)4
 
 // Error Messages
 # define ERR_MSG0	(char *)"Error!\n"
 # define ERR_MSG1	(char *)"Error! Invalid parameters given!\n"
 # define ERR_MSG2	(char *)"Error! Invalid File extension!\n"
-# define ERR_MSG3	(char *)"text\n"
+# define ERR_MSG3	(char *)"Error reading File\n"
+# define ERR_MSG4	(char *)"text\n"
 
 typedef struct s_data {
 	void	*mlx;
@@ -45,9 +47,10 @@ typedef struct s_data {
 }				t_data;
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-int		read_keys(int key_pressed, void *param);
+//int	read_keys(int key_pressed, void *param);
+void	ft_check_map(char *route);
 int		exit_tutorial(t_data *window);
-void	ft_read_check(char *route);
+int		ft_read_check(int *fd);
 void	ft_error_handler(int error);
 
 #endif
