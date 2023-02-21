@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:44:25 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/02/18 17:29:23 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:02:16 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,49 +15,31 @@
 
 int	main(int ac, char **av)
 {
+	t_map	mapdata;
+
 	if (ac != 2)
 		ft_error_handler(ERRCODE1);
 	else
-		ft_check_map(av[1]);
+		ft_check_map(av[1], &mapdata);
 	return (0);
 }
 
-void ft_check_map(char *route)
+void ft_check_map(char *route, t_map *mapdata)
 {
-	int	fd;
+	int		fd;
 
 	if (ft_strrncmp(route, ".fdf", 4))
 		ft_error_handler(ERRCODE2);
 	fd = open(route, O_RDONLY);
 	if (fd == -1)
 		ft_error_handler(ERRCODE3);
-	if (!ft_read_check(&fd))
+	if (!ft_read_check(&fd, mapdata))
 		ft_error_handler(ERRCODE3);
 	if (close(fd) == -1)
 		ft_error_handler(ERRCODE3);
-}
-
-int	ft_read_check(int *fd)
-{
-	char		buffer[BUFFER_TAMAÑO + 1];
-	static char	*content = NULL;
-	int			bytes_read;
-
-	buffer[0] = '\0';
-	bytes_read = read(fd, buffer, BUFFER_TAMAÑO);
-	if (bytes_read == -1)
+	if (!ft_check_content(mapdata))
 		ft_error_handler(ERRCODE3);
-	while (bytes_read > 0)
-	{
-		buffer[bytes_read] = '\0';
-		content = ft_strjoin(content, buffer);
-		ft_bzero(buffer, BUFFER_TAMAÑO);
-		bytes_read = read(fd, buffer, BUFFER_TAMAÑO);
-	}
-	ft_printf("%s", content);
-	return (1);
 }
-
 // int	main(void)
 // {
 // 	t_data	img;

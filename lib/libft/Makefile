@@ -6,7 +6,7 @@
 #    By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 16:27:33 by pramos-m          #+#    #+#              #
-#    Updated: 2023/02/18 15:04:53 by pramos-m         ###   ########.fr        #
+#    Updated: 2023/02/21 17:31:52 by pramos-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,11 @@ SOURCES = ft_atoi.c \
 			ft_strlen.c \
 			ft_memset.c \
 			ft_bzero.c \
+			ft_matrixlen.c \
+			ft_nbrlen_base.c \
 			ft_memcpy.c	\
+			ft_isint.c \
+			ft_isnum.c \
 			ft_memmove.c \
 			ft_strlcpy.c \
 			ft_strlcat.c \

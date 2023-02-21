@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 17:44:17 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/02/18 13:25:25 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/02/21 17:35:40 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <limits.h>
 # define BUFFER_SIZE 42
+# define B10 (char *)"0123456789"
+# define BL16 (char *)"0123456789abcdef"
+# define BU16 (char *)"0123456789ABCDEF"
 
 typedef struct s_list
 {
@@ -70,7 +74,10 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
 void				*ft_error_split(char **str);
-int					ft_is_digit(int c);
+int					ft_matrixlen(char **matrix);
+size_t				ft_nbrlen_base(long long nbr, long long len);
+int					ft_isint(char *num);
+int					ft_isnum(char *input);
 
 //Bonus functions
 
