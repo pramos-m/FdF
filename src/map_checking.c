@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 17:41:16 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/02/21 18:02:09 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/02/22 15:00:53 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,27 @@ int	ft_read_check(int *fd, t_map *mapdata)
 	return (1);
 }
 
-int	ft_check_content(t_map *mapdata)
+int	ft_check_content(int x, int y, t_map *mapdata)
 {
-	int		i;
 	char	**bits;
 
-	i = -1;
 	mapdata->columns = ft_split(mapdata->content, '\n');
 	if (!mapdata->columns)
 	 	return (0);
-	while (mapdata->columns[++i] && i < 10)
+	while (mapdata->columns[++y])
 	{
-		ft_printf("%s \n", mapdata->columns[i]);
-		bits = ft_split(mapdata->columns[i], ' ');
+		//printf("%s\n", mapdata->columns[y]);
+		bits = ft_split(mapdata->columns[y], ' ');
 		if (!ft_check_bits(bits))
 			return (0);
 		if (!ft_line_len(bits))
 			return (0);
 	}
+	x =  ft_line_len(bits);
+	mapdata->width = x;
+	mapdata->height = y;
+	mapdata->size = x * y;
+	//printf("map width: %d\nmap height: %d \nmap size: %i", mapdata->width, mapdata->height, mapdata->size);
 	return (1);
 }
 
@@ -72,7 +75,7 @@ int	ft_check_bits(char **bits)
 		else if (!ft_isnum(bits[i]) || !ft_isint(bits[i]))
 			return (0);
 	}
-	return (1);
+	return (i);
 }
 
 int	ft_check_hexa(char *str)
