@@ -6,7 +6,7 @@
 #    By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 16:27:33 by pramos-m          #+#    #+#              #
-#    Updated: 2023/02/21 17:31:52 by pramos-m         ###   ########.fr        #
+#    Updated: 2023/02/24 14:10:34 by pramos-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ RMV = rm -fr
 
 SOURCES = ft_atoi.c \
 			ft_atol.c \
+			ft_atoi_base.c \
 			ft_isdigit.c \
 			ft_isalpha.c \
 			ft_isalnum.c \

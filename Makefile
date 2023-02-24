@@ -6,7 +6,7 @@
 #    By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/11 12:42:09 by pramos-m          #+#    #+#              #
-#    Updated: 2023/02/21 17:57:00 by pramos-m         ###   ########.fr        #
+#    Updated: 2023/02/24 11:58:04 by pramos-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,8 @@ LIBRARY = $(LIB_DIR)/*/*.a
 INCLUDE = -I$(INC_DIR) -I$(LIB_DIR) -I$(PRINT_DIR) -Ibonus/inc/
 
 SRC_FLS = fdf.c \
-			map_checking.c
+			map_checking.c \
+			load_pixels.c
 
 UTL_FLS = fdf_utils.c
 

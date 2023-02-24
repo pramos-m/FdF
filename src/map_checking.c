@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 17:41:16 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/02/22 15:00:53 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/02/24 12:05:22 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int	ft_check_content(int x, int y, t_map *mapdata)
 	mapdata->width = x;
 	mapdata->height = y;
 	mapdata->size = x * y;
-	//printf("map width: %d\nmap height: %d \nmap size: %i", mapdata->width, mapdata->height, mapdata->size);
 	return (1);
 }
 

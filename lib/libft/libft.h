@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 17:44:17 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/02/21 17:35:40 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:10:41 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int					ft_strrncmp(const char *s1, const char *s2, size_t n);
 char				*ft_itoa(int n);
 int					ft_atoi(const char *str);
 long long int		ft_atol(const char *str);
+int					ft_atoi_base(const char *str, int str_base);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
