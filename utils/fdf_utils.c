@@ -12,18 +12,17 @@
 
 #include <fdf.h>
 
-void	ft_error_handler(int error)
+void	ft_error_handler(int error, char *strerror)
 {
-	if (error == ERRCODE0)
-		write(STDERR_FILENO, ERR_MSG0, ft_strlen(ERR_MSG0));
-	else if (error == ERRCODE1)
-		write(STDERR_FILENO, ERR_MSG1, ft_strlen(ERR_MSG1));
-	else if (error == ERRCODE2)
-		write(STDERR_FILENO, ERR_MSG2, ft_strlen(ERR_MSG2));
-	else if (error == ERRCODE3)
-		write(STDERR_FILENO, ERR_MSG3, ft_strlen(ERR_MSG3));
-	else if (error == ERRCODE4)
-		write(STDERR_FILENO, ERR_MSG4, ft_strlen(ERR_MSG4));
+	if (!strerror && error)
+	{
+		if (error == ERRCODE0)
+			write(STDERR_FILENO, ERR_MSG0, ft_strlen(ERR_MSG0));
+	}
+	else if (!error && strerror)
+		write(STDERR_FILENO, strerror, ft_strlen(strerror));
+	else if (!error && !strerror)
+		perror("Error! ");
 	exit(EXIT_FAILURE);
 }
 

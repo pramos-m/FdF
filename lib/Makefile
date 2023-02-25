@@ -14,6 +14,8 @@ LIB_DIR = libft/
 
 PRNT_DIR = printf/
 
+MINI_LIB_DIR = minilibx_macos/
+
 LIBFT = ./$(LIB_DIR)libft.a
 
 PRINTF = ./$(PRNT_DIR)libftprintf.a
@@ -21,21 +23,25 @@ PRINTF = ./$(PRNT_DIR)libftprintf.a
 all:
 	@$(MAKE) makelib
 	@$(MAKE) makeprint
+	@$(MAKE) makeminilib
 
 makelib:
 	@$(MAKE) -C $(LIB_DIR)
 #flag -C indica directori 
 makeprint:
 	@$(MAKE) -C $(PRNT_DIR)
-
+makeminilib:
+	@$(MAKE) -C $(MINI_LIB_DIR)
 clean:
 	@$(MAKE) clean -C $(LIB_DIR)
 	@$(MAKE) clean -C $(PRNT_DIR)
+	@$(MAKE) clean -C $(MINI_LIB_DIR)
 #clean borra objectes i dependencies
 
 fclean:
 	@$(MAKE) fclean -C $(LIB_DIR)
 	@$(MAKE) fclean -C $(PRNT_DIR)
+	@$(MAKE) clean -C $(MINI_LIB_DIR)
 	@rm -f libft.a
 	@rm -f libftprintf.a
 #borra tot (.a, programas...)

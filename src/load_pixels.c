@@ -20,16 +20,16 @@ void	ft_fill_pixels(t_map *mapdata)
 
 	mapdata->pixels = ft_calloc(sizeof(t_pixel), mapdata->size);
 	if (!mapdata->pixels)
-		ft_error_handler(ERRCODE4);
+		ft_error_handler(0, NULL); 
 	columns = ft_split(mapdata->content, '\n');
 	if (!columns)
-		ft_error_handler(ERRCODE4);
+		ft_error_handler(0, NULL);
 	i = -1;
 	while (++i < mapdata->height)
 	{
 		bits = ft_split(columns[i], ' ');
 		if (!bits)
-			ft_error_handler(ERRCODE4);
+			ft_error_handler(0, NULL);
 		ft_pixel_put(bits, mapdata, i);
 	}
 }
@@ -48,7 +48,7 @@ void	ft_pixel_put(char **bits, t_map *mapdata, int y)
 		{
 			hex = ft_split(bits[x], ',');
 			if (!hex)
-				exit(0);
+				ft_error_handler(0, NULL);
 			mapdata->pixels[i].z = ft_atoi(hex[0]);
 			mapdata->pixels[i].color = ft_atoi_base(&hex[1][2], 16);
 			mapdata->pixels[i].x = x;

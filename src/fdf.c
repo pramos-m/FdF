@@ -16,13 +16,19 @@
 int	main(int ac, char **av)
 {
 	t_map	mapdata;
+//	t_data	img;
 
 	if (ac != 2)
-		ft_error_handler(ERRCODE1);
+		ft_error_handler(0, "Error! Invalid parameters given!\n"); 
 	else
 	{
 		ft_check_map(av[1], &mapdata);
 		ft_fill_pixels(&mapdata);
+		// img.mlx = mlx_init();
+		// img.mlx_win = mlx_new_window(img.mlx, 1920, 1080, "Hello world!");
+		// img.img = mlx_new_image(img.mlx, 1920, 1080);
+		// img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
+ 		// 	&img.endian);
 	}
 	return (0);
 }
@@ -32,16 +38,16 @@ void ft_check_map(char *route, t_map *mapdata)
 	int		fd;
 
 	if (ft_strrncmp(route, ".fdf", 4))
-		ft_error_handler(ERRCODE2);
+		ft_error_handler(0, "Error! Invalid File extension!\n");
 	fd = open(route, O_RDONLY);
 	if (fd == -1)
-		ft_error_handler(ERRCODE3);
+		ft_error_handler(0, NULL); 
 	if (!ft_read_check(&fd, mapdata))
-		ft_error_handler(ERRCODE3);
+		ft_error_handler(0, NULL);
 	if (close(fd) == -1)
-		ft_error_handler(ERRCODE3);
+		ft_error_handler(0, NULL);
 	if (!ft_check_content(0, -1, mapdata))
-		ft_error_handler(ERRCODE3);
+		ft_error_handler(0, "Error! Invalid File Content!\n");
 }
 
 // int	main(void)

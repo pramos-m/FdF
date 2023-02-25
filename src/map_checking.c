@@ -41,7 +41,6 @@ int	ft_check_content(int x, int y, t_map *mapdata)
 	 	return (0);
 	while (mapdata->columns[++y])
 	{
-		//printf("%s\n", mapdata->columns[y]);
 		bits = ft_split(mapdata->columns[y], ' ');
 		if (!ft_check_bits(bits))
 			return (0);
