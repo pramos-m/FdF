@@ -23,21 +23,26 @@
 
 # define ESC 53
 
+//Window
+
+#define WIN_WIDTH	(int)1920
+#define WIN_HEIGHT	(int)1080
+
 // Error Codes
 # define ERRCODE0	(int)0
 
 // Error Messages
 # define ERR_MSG0	(char *)"Error!\n"
 
-typedef struct s_data {
-	void	*mlx;
-	void	*mlx_win;
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
+// typedef struct s_data {
+// 	void	*mlx;
+// 	void	*mlx_win;
+// 	void	*img;
+// 	char	*addr;
+// 	int		bits_per_pixel;
+// 	int		line_length;
+// 	int		endian;
+// }				t_data;
 
 typedef struct s_pixel {
 	float	x;
@@ -54,13 +59,17 @@ typedef struct s_map {
 	int		width;
 	int		height;
 	int		size;
+	//window
 	t_pixel	*pixels;
+	void	*mlx;
+	void	*mlx_win;
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
 }				t_map;
 
-//int	read_keys(int key_pressed, void *param);
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-int		exit_tutorial(t_data *window);
-void	ft_error_handler(int error, char *strerror);
 
 //	Map Cheking
 void	ft_check_map(char *route, t_map *mapdata);
@@ -73,6 +82,16 @@ int		ft_check_hexa(char *str);
 //	Map Loading
 
 void	ft_fill_pixels(t_map *mapdata);
-void ft_pixel_put(char **bits, t_map *mapdata, int y);
+void	ft_pixel_put(char **bits, t_map *mapdata, int y);
+
+//Window
+
+void	my_mlx_pixel_put(t_map *data, int x, int y, int color);
+int		read_keys(int key_pressed, void *param);
+void	ft_window_create(t_map	*mapdata);
+
+//Utils
+int		exit_tutorial(t_map *window);
+void	ft_error_handler(int error, char *strerror);
 
 #endif

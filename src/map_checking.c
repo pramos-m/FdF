@@ -26,7 +26,7 @@ int	ft_read_check(int *fd, t_map *mapdata)
 	{
 		buffer[bytes_read] = '\0';
 		mapdata->content = ft_strjoin(mapdata->content, buffer);
-		ft_bzero(buffer, BUFFER_TAMAÑO);
+		ft_bzero(buffer, BUFFER_TAMAÑO + 1);
 		bytes_read = read(*fd, buffer, BUFFER_TAMAÑO);
 	}
 	return (1);

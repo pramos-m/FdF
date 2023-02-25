@@ -9,7 +9,7 @@
 /*   Updated: 2023/02/24 13:50:45 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+		
 #include <fdf.h>
 
 void	ft_error_handler(int error, char *strerror)

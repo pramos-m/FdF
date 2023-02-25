@@ -20,7 +20,7 @@ void	ft_fill_pixels(t_map *mapdata)
 
 	mapdata->pixels = ft_calloc(sizeof(t_pixel), mapdata->size);
 	if (!mapdata->pixels)
-		ft_error_handler(0, NULL); 
+		ft_error_handler(0, NULL);
 	columns = ft_split(mapdata->content, '\n');
 	if (!columns)
 		ft_error_handler(0, NULL);
