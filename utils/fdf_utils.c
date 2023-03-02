@@ -41,3 +41,27 @@ int	ft_line_len(char **bits)
 			return (0);
 	return (i);
 }
+void	my_mlx_pixel_put(t_map *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));//Dst va a ser la direccion de memoria del primer pixel a imprimir. sumado de y * la length, y sumado por x * bytes (porque la direccion de x, no es 1, 2, 3, 4. Si no que cada posicion es la primera x los bytes que sean cada pixel (dividimos los bits y los onvertimos en bytes pq es un char *)).
+	*(unsigned int*)dst = color;
+}
+
+int	exit_tutorial(t_map *window)
+{
+	if (window)
+		mlx_destroy_window (window->mlx, window->mlx_win);
+	exit(EXIT_SUCCESS);
+}
+
+int	read_keys(int key_pressed, void *param)
+{
+	t_map	*img;
+
+	img = (t_map *)param;
+	if (key_pressed == ESC || !img)
+		exit_tutorial(img);
+	return (0);
+}

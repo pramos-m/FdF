@@ -60,8 +60,8 @@ $(OBJ_DIR)%.o: %.c $(LIBRARY)
 	$(CC) $(CFLAGS) -MMD -Ilib/minilibx_macos/ $(INCLUDE) -c $< -o $@
 
 all:
-	$(MAKE) -C $(LIB_DIR)
-	$(MAKE) $(NAME)
+	@$(MAKE) -C $(LIB_DIR)
+	@$(MAKE) $(NAME)
 
 $(NAME):: $(OBJS)
 	$(CC) $(CFLAGS) -L./lib/minilibx_macos/ -lmlx -framework OpenGL -framework Appkit -MMD $(OBJS) $(LIBRARY) -o fdf
