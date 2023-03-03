@@ -36,11 +36,10 @@ void	ft_fill_pixels(t_map *mapdata)
 
 void	ft_pixel_put(char **bits, t_map *mapdata, int y)
 {
-	static int	i;
+	static int	i = 0;
 	int			x;
 	char		**hex;
 
-	i = -1;
 	x = -1;
 	while (++x < mapdata->width)
 	{
@@ -64,5 +63,7 @@ void	ft_pixel_put(char **bits, t_map *mapdata, int y)
 		printf("z: %f ", mapdata->pixels[i].z);
 		printf("x: %f ", mapdata->pixels[i].x);
 		printf("y: %f \n", mapdata->pixels[i].y);
+		i++;
 	}
+
 }

@@ -81,6 +81,11 @@ void	my_mlx_pixel_put(t_map *data, int x, int y, int color);
 int		read_keys(int key_pressed, void *param);
 void	ft_window_create(t_map	*mapdata);
 
+//print win
+void	ft_print_win(t_map	*mapdata);
+void	ft_escale(t_map	*mapdata);
+void	ft_print_map(t_map	*mapdata);
+
 //Utils
 int		exit_tutorial(t_map *window);
 void	ft_error_handler(int error, char *strerror);

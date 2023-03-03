@@ -70,8 +70,8 @@ int	ft_check_bits(char **bits)
 			if (ft_matrixlen(hex) > 2 || !ft_isnum(hex[0]) || !ft_isint(hex[0]) || ft_check_hexa(hex[1]))
 				return (0);
 		}
-		else if (!ft_isnum(bits[i]) || !ft_isint(bits[i]))
-			return (0);
+		// else if (!ft_isnum(bits[i]) || !ft_isint(bits[i]))
+		// 	return (0);
 	}
 	return (i);
 }
