@@ -22,7 +22,6 @@ int	main(int ac, char **av)
 	ft_check_map(av[1], &mapdata);
 	ft_fill_pixels(&mapdata);
 	ft_window_create(&mapdata);
-	//printf("Window create: OK\n");
 	ft_print_win(&mapdata);
 	mlx_hook(mapdata.mlx_win, 17, 0, exit_tutorial, &mapdata);
 	mlx_hook(mapdata.mlx_win, 2, 0, read_keys, &mapdata);
@@ -58,6 +57,7 @@ void	ft_window_create(t_map	*mapdata)
 
 void	ft_print_win(t_map	*mapdata)
 {
+	ft_print_wallpaper(mapdata);
 	ft_escale(mapdata);
 	ft_traslate(mapdata);
 	ft_print_map(mapdata);
@@ -79,16 +79,27 @@ void	ft_traslate(t_map	*mapdata)
 void	ft_escale(t_map	*mapdata)
 {
 	int	i;
-	// int	scale;
+	int	scale;
 
 	i = -1;
-	// scale = WIN_HEIGHT / ft_module(WIN_WIDTH, WIN_HEIGHT);
+	scale = WIN_HEIGHT / ft_module(WIN_WIDTH, WIN_HEIGHT);
 	while (++i < mapdata->size)
 	{
-		mapdata->pixels[i].x = mapdata->pixels[i].x * 3;
-		mapdata->pixels[i].y = mapdata->pixels[i].y * 3;
+		mapdata->pixels[i].x = mapdata->pixels[i].x * scale;
+		mapdata->pixels[i].y = mapdata->pixels[i].y * scale;
 	}
 }
+
+int	ft_module(int x, int y)
+{
+	t_pixel	vector;
+	float		len;
+
+	vector.x = x - x;
+	vector.y = y - y;
+	len = sqrt((vector.x * vector.x) + (vector.y * vector.y));
+}
+
 void ft_print_map(t_map	*mapdata)
 {
 	int	x;

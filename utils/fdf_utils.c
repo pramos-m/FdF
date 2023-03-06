@@ -68,3 +68,20 @@ int	read_keys(int key_pressed, void *param)
 		exit_tutorial(img);
 	return (0);
 }
+void	ft_print_wallpaper(t_map *mapdata)
+{
+	int	y;
+	int	x;
+
+	y = -1;
+	while (++y < WIN_HEIGHT)
+	{
+		x = 0;
+		while (x < WIN_WIDTH)
+		{
+			my_mlx_pixel_put(mapdata, y, x, 0X9b9b9b);
+			x++;
+		}
+	}
+	
+}

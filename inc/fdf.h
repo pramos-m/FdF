@@ -82,6 +82,7 @@ void	my_mlx_pixel_put(t_map *data, int x, int y, int color);
 int		read_keys(int key_pressed, void *param);
 void	ft_window_create(t_map	*mapdata);
 
+
 //print win
 void	ft_print_win(t_map	*mapdata);
 void	ft_traslate(t_map	*mapdata);
@@ -89,6 +90,8 @@ void	ft_escale(t_map	*mapdata);
 void	ft_print_map(t_map	*mapdata);
 void	my_mlx_pixel_put(t_map *data, int x, int y, int color);
 void	ft_print_line(t_map	*mapdata, t_pixel a, t_pixel b);
+int		ft_module(int x, int y);
+void	ft_print_wallpaper(t_map *mapdata);
 
 //Utils
 int		exit_tutorial(t_map *window);
