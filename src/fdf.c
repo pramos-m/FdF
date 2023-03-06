@@ -21,7 +21,6 @@ int	main(int ac, char **av)
 		ft_error_handler(0, "Error! Invalid parameters given!\n"); 
 	ft_check_map(av[1], &mapdata);
 	ft_fill_pixels(&mapdata);
-	printf("Mapdata content %s", mapdata.content);
 	ft_window_create(&mapdata);
 	//printf("Window create: OK\n");
 	ft_print_win(&mapdata);
@@ -59,20 +58,35 @@ void	ft_window_create(t_map	*mapdata)
 
 void	ft_print_win(t_map	*mapdata)
 {
-	// ft_escale(mapdata);
-	// ft_print_map(mapdata);
+	ft_escale(mapdata);
+	ft_traslate(mapdata);
+	ft_print_map(mapdata);
 	mlx_put_image_to_window(mapdata->mlx, mapdata->mlx_win, mapdata->img, 0, 0);
 }
 
-void	ft_escale(t_map	*mapdata)
+void	ft_traslate(t_map	*mapdata)
 {
 	int	i;
 
 	i = -1;
 	while (++i < mapdata->size)
 	{
-		mapdata->pixels[i].x = mapdata->pixels[i].x ;
-		mapdata->pixels[i].y += mapdata->pixels[i].y ;
+		mapdata->pixels[i].x = mapdata->pixels[i].x + (WIN_WIDTH / 2);
+		mapdata->pixels[i].y = mapdata->pixels[i].y + (WIN_HEIGHT / 2);
+	}
+}
+
+void	ft_escale(t_map	*mapdata)
+{
+	int	i;
+	// int	scale;
+
+	i = -1;
+	// scale = WIN_HEIGHT / ft_module(WIN_WIDTH, WIN_HEIGHT);
+	while (++i < mapdata->size)
+	{
+		mapdata->pixels[i].x = mapdata->pixels[i].x * 3;
+		mapdata->pixels[i].y = mapdata->pixels[i].y * 3;
 	}
 }
 void ft_print_map(t_map	*mapdata)
@@ -88,11 +102,37 @@ void ft_print_map(t_map	*mapdata)
 		x = -1;
 		while (++x < mapdata->width)
 		{
-			// printf("mapdata->pixels[p].x : %f mapdata->pixels[p].y : %f\n", mapdata->pixels[p].x, mapdata->pixels[p].y);
-			mlx_pixel_put(mapdata->mlx, mapdata->mlx_win, mapdata->pixels[p].x, mapdata->pixels[p].y, mapdata->pixels[p].color);
+			// my_mlx_pixel_put(mapdata, mapdata->pixels[p].x, mapdata->pixels[p].y, mapdata->pixels[p].color);
+			if (p + 1 < mapdata->size && mapdata->pixels[p].y == mapdata->pixels[p + 1].y)
+				ft_print_line(mapdata, mapdata->pixels[p], mapdata->pixels[p + 1]);
+			if (p + mapdata->width < mapdata->size)
+				ft_print_line(mapdata, mapdata->pixels[p], mapdata->pixels[p + mapdata->width]);
 			if (x < mapdata->width - 1)
 				p++;
 		}
 		p++;
 	}
+}
+
+void	ft_print_line(t_map	*mapdata, t_pixel a, t_pixel b)
+{
+	t_pixel	vector;
+	t_pixel	increment;
+	t_pixel	toprint;
+	float		len;
+
+	vector.x = b.x - a.x;
+	vector.y = b.y - a.y;
+	len = sqrt((vector.x * vector.x) + (vector.y * vector.y));
+	increment.x = vector.x / len;
+	increment.y = vector.y / len;
+	toprint.x = a.x;
+	toprint.y = a.y;
+	while (len-- > 0)
+	{
+		my_mlx_pixel_put(mapdata, toprint.x, toprint.y, a.color);
+		toprint.x += increment.x;
+		toprint.y += increment.y;
+	}
+	
 }

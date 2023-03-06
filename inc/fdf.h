@@ -20,6 +20,7 @@
 # include "../lib/libft/libft.h"
 # include "../lib/printf/ft_printf.h"
 # include "stdio.h"
+# include <math.h>
 
 # define ESC 53
 
@@ -83,8 +84,11 @@ void	ft_window_create(t_map	*mapdata);
 
 //print win
 void	ft_print_win(t_map	*mapdata);
+void	ft_traslate(t_map	*mapdata);
 void	ft_escale(t_map	*mapdata);
 void	ft_print_map(t_map	*mapdata);
+void	my_mlx_pixel_put(t_map *data, int x, int y, int color);
+void	ft_print_line(t_map	*mapdata, t_pixel a, t_pixel b);
 
 //Utils
 int		exit_tutorial(t_map *window);

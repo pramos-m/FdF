@@ -50,9 +50,9 @@ void	ft_pixel_put(char **bits, t_map *mapdata, int y)
 				ft_error_handler(0, NULL);
 			mapdata->pixels[i].z = ft_atoi(hex[0]);
 			mapdata->pixels[i].color = ft_atoi_base(&hex[1][2], 16);
-			mapdata->pixels[i].x = x;
-			mapdata->pixels[i].y = y;
-			printf("color: %d \n", mapdata->pixels[i].color);
+			mapdata->pixels[i].x = x - (mapdata->width / 2);
+			mapdata->pixels[i].y = y - (mapdata->height / 2);
+			// printf("color: %d \n", mapdata->pixels[i].color);
 		}
 		else
 		{
@@ -60,9 +60,9 @@ void	ft_pixel_put(char **bits, t_map *mapdata, int y)
 			mapdata->pixels[i].x = x;
 			mapdata->pixels[i].y = y;
 		}
-		printf("z: %f ", mapdata->pixels[i].z);
-		printf("x: %f ", mapdata->pixels[i].x);
-		printf("y: %f \n", mapdata->pixels[i].y);
+		// printf("z: %f ", mapdata->pixels[i].z);
+		// printf("x: %f ", mapdata->pixels[i].x);
+		// printf("y: %f \n", mapdata->pixels[i].y);
 		i++;
 	}
 

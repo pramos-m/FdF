@@ -64,7 +64,7 @@ all:
 	@$(MAKE) $(NAME)
 
 $(NAME):: $(OBJS)
-	$(CC) $(CFLAGS) -L./lib/minilibx_macos/ -lmlx -framework OpenGL -framework Appkit -MMD $(OBJS) $(LIBRARY) -o fdf
+	$(CC) $(CFLAGS) -L./lib/minilibx_macos/ -lmlx -lm -framework OpenGL -framework Appkit -MMD $(OBJS) $(LIBRARY) -o fdf
 
 $(NAME)::
 	@echo "nothing to be done fdf"
