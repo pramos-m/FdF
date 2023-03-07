@@ -53,6 +53,7 @@ typedef struct s_map {
 	int		size;
 	//window
 	t_pixel	*pixels;
+	t_pixel	*pixels_copy;
 	void	*mlx;
 	void	*mlx_win;
 	void	*img;
@@ -90,8 +91,9 @@ void	ft_escale(t_map	*mapdata);
 void	ft_print_map(t_map	*mapdata);
 void	my_mlx_pixel_put(t_map *data, int x, int y, int color);
 void	ft_print_line(t_map	*mapdata, t_pixel a, t_pixel b);
-int		ft_module(int x, int y);
+float	ft_module(float x, float y);
 void	ft_print_wallpaper(t_map *mapdata);
+void	ft_change_iso(t_map	*mapdata);
 
 //Utils
 int		exit_tutorial(t_map *window);

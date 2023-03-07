@@ -58,10 +58,31 @@ void	ft_window_create(t_map	*mapdata)
 void	ft_print_win(t_map	*mapdata)
 {
 	ft_print_wallpaper(mapdata);
+	ft_change_iso(mapdata);
 	ft_escale(mapdata);
 	ft_traslate(mapdata);
 	ft_print_map(mapdata);
 	mlx_put_image_to_window(mapdata->mlx, mapdata->mlx_win, mapdata->img, 0, 0);
+}
+
+void	ft_change_iso(t_map	*mapdata)
+{
+	int	i;
+	int	x;
+	
+	mapdata->pixels_copy = ft_calloc(sizeof(t_pixel), mapdata->size);
+	if (!mapdata->pixels)
+		ft_error_handler(0, NULL);
+	i = -1;
+	while (++i < mapdata->size)
+	{
+		mapdata->pixels_copy[i].x = mapdata->pixels[i].x;
+		mapdata->pixels_copy[i].y = mapdata->pixels[i].y;
+		mapdata->pixels_copy[i].color = mapdata->pixels[i].color;
+		x = mapdata->pixels[i].x;
+		mapdata->pixels[i].x = (x - mapdata->pixels[i].y) * cos(0.82);
+		mapdata->pixels[i].y = (x + mapdata->pixels[i].y) * sin(0.82) - mapdata->pixels[i].z;
+	}
 }
 
 void	ft_traslate(t_map	*mapdata)
@@ -78,11 +99,11 @@ void	ft_traslate(t_map	*mapdata)
 
 void	ft_escale(t_map	*mapdata)
 {
-	int	i;
-	int	scale;
+	int		i;
+	float	scale;
 
 	i = -1;
-	scale = WIN_HEIGHT / ft_module(WIN_WIDTH, WIN_HEIGHT);
+	scale = (float) WIN_HEIGHT / ft_module(mapdata->width, mapdata->height);
 	while (++i < mapdata->size)
 	{
 		mapdata->pixels[i].x = mapdata->pixels[i].x * scale;
@@ -90,14 +111,12 @@ void	ft_escale(t_map	*mapdata)
 	}
 }
 
-int	ft_module(int x, int y)
+float	ft_module(float x, float y)
 {
-	t_pixel	vector;
 	float		len;
 
-	vector.x = x - x;
-	vector.y = y - y;
-	len = sqrt((vector.x * vector.x) + (vector.y * vector.y));
+	len = sqrt((x * x) + (y * y));
+	return (len);
 }
 
 void ft_print_map(t_map	*mapdata)
@@ -113,8 +132,7 @@ void ft_print_map(t_map	*mapdata)
 		x = -1;
 		while (++x < mapdata->width)
 		{
-			// my_mlx_pixel_put(mapdata, mapdata->pixels[p].x, mapdata->pixels[p].y, mapdata->pixels[p].color);
-			if (p + 1 < mapdata->size && mapdata->pixels[p].y == mapdata->pixels[p + 1].y)
+			if (p + 1 < mapdata->size && mapdata->pixels_copy[p].y == mapdata->pixels_copy[p + 1].y)
 				ft_print_line(mapdata, mapdata->pixels[p], mapdata->pixels[p + 1]);
 			if (p + mapdata->width < mapdata->size)
 				ft_print_line(mapdata, mapdata->pixels[p], mapdata->pixels[p + mapdata->width]);

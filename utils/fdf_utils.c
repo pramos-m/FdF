@@ -73,15 +73,16 @@ void	ft_print_wallpaper(t_map *mapdata)
 	int	y;
 	int	x;
 
-	y = -1;
-	while (++y < WIN_HEIGHT)
+	y = 0;
+	while (y < WIN_HEIGHT)
 	{
 		x = 0;
 		while (x < WIN_WIDTH)
 		{
-			my_mlx_pixel_put(mapdata, y, x, 0X9b9b9b);
+			my_mlx_pixel_put(mapdata, x, y, 0X9b9b9b);
 			x++;
 		}
+		y++;
 	}
 	
 }
