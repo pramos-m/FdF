@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 17:44:17 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/02/24 14:10:41 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:37:34 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int					ft_matrixlen(char **matrix);
 size_t				ft_nbrlen_base(long long nbr, long long len);
 int					ft_isint(char *num);
 int					ft_isnum(char *input);
-
+void				ft_free_matrix(char **matrix);
 //Bonus functions
 
 t_list				*ft_lstnew(void *content);

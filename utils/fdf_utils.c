@@ -6,10 +6,10 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:31:28 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/02/24 13:50:45 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/03/08 16:58:43 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-		
+
 #include <fdf.h>
 
 void	ft_error_handler(int error, char *strerror)
@@ -52,10 +52,17 @@ void	my_mlx_pixel_put(t_map *data, int x, int y, int color)
 	}
 }
 
-int	exit_tutorial(t_map *window)
+int	exit_tutorial(t_map *mapdata)
 {
-	if (window)
-		mlx_destroy_window (window->mlx, window->mlx_win);
+	if (mapdata)
+	{
+		mlx_destroy_window (mapdata->mlx, mapdata->mlx_win);
+		mlx_destroy_image (mapdata->mlx, mapdata->img);
+	}
+	free(mapdata->route);
+	free(mapdata->content);
+	free(mapdata->pixels);
+	free(mapdata->pixels_copy);
 	exit(EXIT_SUCCESS);
 }
 
@@ -79,10 +86,17 @@ void	ft_print_wallpaper(t_map *mapdata)
 		x = 0;
 		while (x < WIN_WIDTH)
 		{
-			my_mlx_pixel_put(mapdata, x, y, 0X9b9b9b);
+			my_mlx_pixel_put(mapdata, x, y, 0X222222);
 			x++;
 		}
 		y++;
 	}
 	
+}
+float	ft_module(float x, float y)
+{
+	float		len;
+
+	len = sqrt((x * x) + (y * y));
+	return (len);
 }

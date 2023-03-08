@@ -6,7 +6,7 @@
 #    By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 16:27:33 by pramos-m          #+#    #+#              #
-#    Updated: 2023/02/24 14:10:34 by pramos-m         ###   ########.fr        #
+#    Updated: 2023/03/08 13:37:57 by pramos-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ SOURCES = ft_atoi.c \
 			ft_putnbr_fd.c \
 			get_next_line.c \
 			get_next_line_utils.c \
+			ft_free_matrix.c \
 
 BONUS = ft_lstnew_bonus.c \
 		ft_lstadd_front_bonus.c \

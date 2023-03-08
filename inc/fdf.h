@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:44:52 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/02/22 17:22:36 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/03/08 16:58:24 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ typedef struct s_map {
 	//window
 	t_pixel	*pixels;
 	t_pixel	*pixels_copy;
+	int		min_z;
+	int		max_z;
 	void	*mlx;
 	void	*mlx_win;
 	void	*img;
@@ -94,9 +96,10 @@ void	ft_print_line(t_map	*mapdata, t_pixel a, t_pixel b);
 float	ft_module(float x, float y);
 void	ft_print_wallpaper(t_map *mapdata);
 void	ft_change_iso(t_map	*mapdata);
+void	ft_copy(t_map	*mapdata);
 
 //Utils
-int		exit_tutorial(t_map *window);
+int		exit_tutorial(t_map *mapdata);
 void	ft_error_handler(int error, char *strerror);
 
 #endif

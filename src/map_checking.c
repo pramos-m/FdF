@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 17:41:16 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/02/24 12:05:22 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:38:37 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int	ft_check_content(int x, int y, t_map *mapdata)
 	mapdata->width = x;
 	mapdata->height = y;
 	mapdata->size = x * y;
+	ft_free_matrix(mapdata->columns);
+	ft_free_matrix(bits);
 	return (1);
 }
 
@@ -70,8 +72,6 @@ int	ft_check_bits(char **bits)
 			if (ft_matrixlen(hex) > 2 || !ft_isnum(hex[0]) || !ft_isint(hex[0]) || ft_check_hexa(hex[1]))
 				return (0);
 		}
-		// else if (!ft_isnum(bits[i]) || !ft_isint(bits[i]))
-		// 	return (0);
 	}
 	return (i);
 }
