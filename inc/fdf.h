@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:44:52 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/03/08 16:58:24 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:06:50 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 # define ESC 53
 
 //Window
-
 #define WIN_WIDTH	(int)1920
 #define WIN_HEIGHT	(int)1080
 
@@ -34,7 +33,6 @@
 
 // Error Messages
 # define ERR_MSG0	(char *)"Error!\n"
-
 
 typedef struct s_pixel {
 	float	x;
@@ -63,8 +61,8 @@ typedef struct s_map {
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		z;
 }				t_map;
-
 
 //	Map Cheking
 void	ft_check_map(char *route, t_map *mapdata);
@@ -85,7 +83,6 @@ void	my_mlx_pixel_put(t_map *data, int x, int y, int color);
 int		read_keys(int key_pressed, void *param);
 void	ft_window_create(t_map	*mapdata);
 
-
 //print win
 void	ft_print_win(t_map	*mapdata);
 void	ft_traslate(t_map	*mapdata);
@@ -97,6 +94,7 @@ float	ft_module(float x, float y);
 void	ft_print_wallpaper(t_map *mapdata);
 void	ft_change_iso(t_map	*mapdata);
 void	ft_copy(t_map	*mapdata);
+void	ft_propotion_z(t_map	*mapdata);
 
 //Utils
 int		exit_tutorial(t_map *mapdata);

@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:56:27 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/03/08 13:27:31 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:42:48 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ void	ft_pixel_put(char **bits, t_map *mapdata, int y)
 	while (++x < mapdata->width)
 	{
 		if (ft_strchr(bits[x], ','))
-			mapdata->pixels[i].color = ft_atoi_base(ft_strchr(bits[x], ',') + 1, 16);
+			mapdata->pixels[i].color
+				= ft_atoi_base(ft_strchr(bits[x], ',') + 1, 16);
 		if (ft_atoi(bits[x]) > mapdata->max_z)
 			mapdata->max_z = ft_atoi(bits[x]);
 		if (ft_atoi(bits[x]) < mapdata->min_z)
@@ -59,5 +60,4 @@ void	ft_pixel_put(char **bits, t_map *mapdata, int y)
 		free(bits[x]);
 		i++;
 	}
-
 }

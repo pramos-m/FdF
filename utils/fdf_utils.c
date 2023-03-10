@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:31:28 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/03/08 16:58:43 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:46:58 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,16 @@ int	ft_line_len(char **bits)
 			return (0);
 	return (i);
 }
+
 void	my_mlx_pixel_put(t_map *data, int x, int y, int color)
 {
 	char	*dst;
 
 	if (x >= 0 && y >= 0 && x < WIN_WIDTH && y < WIN_HEIGHT)
 	{
-		dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));//Dst va a ser la direccion de memoria del primer pixel a imprimir. sumado de y * la length, y sumado por x * bytes (porque la direccion de x, no es 1, 2, 3, 4. Si no que cada posicion es la primera x los bytes que sean cada pixel (dividimos los bits y los onvertimos en bytes pq es un char *)).
-		*(unsigned int*)dst = color;
+		dst = data->addr + (y * data->line_length
+				+ x * (data->bits_per_pixel / 8));//Dst va a ser la direccion de memoria del primer pixel a imprimir. sumado de y * la length, y sumado por x * bytes (porque la direccion de x, no es 1, 2, 3, 4. Si no que cada posicion es la primera x los bytes que sean cada pixel (dividimos los bits y los onvertimos en bytes pq es un char *)).
+		*(unsigned int *)dst = color;
 	}
 }
 
@@ -59,7 +61,6 @@ int	exit_tutorial(t_map *mapdata)
 		mlx_destroy_window (mapdata->mlx, mapdata->mlx_win);
 		mlx_destroy_image (mapdata->mlx, mapdata->img);
 	}
-	free(mapdata->route);
 	free(mapdata->content);
 	free(mapdata->pixels);
 	free(mapdata->pixels_copy);
@@ -75,6 +76,7 @@ int	read_keys(int key_pressed, void *param)
 		exit_tutorial(img);
 	return (0);
 }
+
 void	ft_print_wallpaper(t_map *mapdata)
 {
 	int	y;
@@ -91,8 +93,8 @@ void	ft_print_wallpaper(t_map *mapdata)
 		}
 		y++;
 	}
-	
 }
+
 float	ft_module(float x, float y)
 {
 	float		len;

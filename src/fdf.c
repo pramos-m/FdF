@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:44:25 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/02/24 11:56:40 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/03/10 11:21:04 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	ft_print_win(t_map	*mapdata)
 {
 	ft_print_wallpaper(mapdata);
 	ft_copy(mapdata);
+	ft_propotion_z(mapdata);
 	ft_change_iso(mapdata);
 	ft_escale(mapdata);
 	ft_traslate(mapdata);
