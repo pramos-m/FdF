@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:44:52 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/03/09 17:06:50 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/03/12 20:28:07 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_map {
 	int		width;
 	int		height;
 	int		size;
-	//window
+	// window
 	t_pixel	*pixels;
 	t_pixel	*pixels_copy;
 	int		min_z;
@@ -62,6 +62,7 @@ typedef struct s_map {
 	int		line_length;
 	int		endian;
 	int		z;
+	float	depth;
 }				t_map;
 
 //	Map Cheking
