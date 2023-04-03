@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 16:22:03 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/04/03 16:32:39 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:50:03 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	my_mlx_pixel_put(t_map *data, int x, int y, int color)
 	if (x >= 0 && y >= 0 && x < WIN_WIDTH && y < WIN_HEIGHT)
 	{
 		dst = data->addr + (y * data->line_length
-				+ x * (data->bits_per_pixel / 8));//Dst va a ser la direccion de memoria del primer pixel a imprimir. sumado de y * la length, y sumado por x * bytes (porque la direccion de x, no es 1, 2, 3, 4. Si no que cada posicion es la primera x los bytes que sean cada pixel (dividimos los bits y los onvertimos en bytes pq es un char *)).
+				+ x * (data->bits_per_pixel / 8));
 		*(unsigned int *)dst = color;
 	}
 }

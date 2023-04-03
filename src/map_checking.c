@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 17:41:16 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/04/03 16:33:45 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:52:12 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	ft_read_check(int *fd, t_map *mapdata)
 {
-	char	buffer[BUFFER_TAMAÑO + 1];
+	char	buffer[BUFFER_TAMANO + 1];
 	int		bytes_read;
 
 	buffer[0] = '\0';
-	bytes_read = read(*fd, buffer, BUFFER_TAMAÑO);
+	bytes_read = read(*fd, buffer, BUFFER_TAMANO);
 	if (bytes_read == -1)
 		return (0);
 	mapdata->content = ft_strdup("");
@@ -27,8 +27,8 @@ int	ft_read_check(int *fd, t_map *mapdata)
 		buffer[bytes_read] = '\0';
 		free(mapdata->content);
 		mapdata->content = ft_strjoin(mapdata->content, buffer);
-		ft_bzero(buffer, BUFFER_TAMAÑO + 1);
-		bytes_read = read(*fd, buffer, BUFFER_TAMAÑO);
+		ft_bzero(buffer, BUFFER_TAMANO + 1);
+		bytes_read = read(*fd, buffer, BUFFER_TAMANO);
 	}
 	return (1);
 }
@@ -39,7 +39,7 @@ int	ft_check_content(int x, int y, t_map *mapdata)
 
 	mapdata->columns = ft_split(mapdata->content, '\n');
 	if (!mapdata->columns)
-	 	return (0);
+		return (0);
 	while (mapdata->columns[++y])
 	{
 		ft_free_matrix(bits);
@@ -48,9 +48,8 @@ int	ft_check_content(int x, int y, t_map *mapdata)
 			return (0);
 		if (!ft_line_len(bits))
 			return (0);
-
 	}
-	x =  ft_line_len(bits);
+	x = ft_line_len(bits);
 	mapdata->width = x;
 	mapdata->height = y;
 	mapdata->size = x * y;
@@ -72,7 +71,8 @@ int	ft_check_bits(char **bits)
 			hex = ft_split(bits[i], ',');
 			if (!hex)
 				return (0);
-			if (ft_matrixlen(hex) > 2 || !ft_isnum(hex[0]) || !ft_isint(hex[0]) || ft_check_hexa(hex[1]))
+			if (ft_matrixlen(hex) > 2 || !ft_isnum(hex[0])
+				|| !ft_isint(hex[0]) || ft_check_hexa(hex[1]))
 				return (0);
 			ft_free_matrix(hex);
 		}

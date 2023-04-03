@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:44:25 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/04/03 16:29:04 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:16:49 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_check_map(char *route, t_map *mapdata)
 		ft_error_handler(0, "Error! Invalid File extension!\n");
 	fd = open(route, O_RDONLY);
 	if (fd == -1)
-		ft_error_handler(0, NULL); 
+		ft_error_handler(0, NULL);
 	if (!ft_read_check(&fd, mapdata))
 		ft_error_handler(0, NULL);
 	if (close(fd) == -1)
@@ -48,12 +48,13 @@ void	ft_check_map(char *route, t_map *mapdata)
 
 void	ft_window_create(t_map	*mapdata)
 {
-	mapdata->mlx = mlx_init(); //devuelve un void * con la direccion de memoria donde se encuentra la ventana
-	mapdata->mlx_win = mlx_new_window(mapdata->mlx, WIN_WIDTH, WIN_HEIGHT, "Pol Ramos FDF"); //Creamos la ventana a partir de la direccion de memoria de donde "empieza" la ventana
+	mapdata->mlx = mlx_init();
+	mapdata->mlx_win = mlx_new_window(mapdata->mlx, WIN_WIDTH, WIN_HEIGHT,
+			"Pol Ramos FDF");
 	mapdata->img = mlx_new_image(mapdata->mlx, WIN_WIDTH, WIN_HEIGHT);
-	mapdata->addr = mlx_get_data_addr(mapdata->img, &mapdata->bits_per_pixel, 
+	mapdata->addr = mlx_get_data_addr(mapdata->img, &mapdata->bits_per_pixel,
 			&mapdata->line_length,
-			&mapdata->endian);//Asigna valor a los parametros mandados en base a la img que le mandas. Img no le mandas direccion ya que ya tiene valor, las demas si para que se puedan editar.  img.line_length(es el "width")  img.bits_per_pixel(cantidad de bits para rellenar un pixel) img.endian(devuelve 0 o 1, estableciendo el orden de los bits para saber si estan de derecha a izquierda o al reves en orden de prioridad)
+			&mapdata->endian);
 }
 
 void	ft_print_win(t_map	*mapdata)
