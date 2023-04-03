@@ -6,12 +6,11 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 17:41:16 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/03/09 16:43:29 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/04/03 16:33:45 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
-#define BUFFER_TAMAÑO 500000
 
 int	ft_read_check(int *fd, t_map *mapdata)
 {

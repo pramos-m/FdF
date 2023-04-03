@@ -4,6 +4,8 @@
 		"ft_printf.h": "c",
 		"ratio": "c",
 		"limits.h": "c",
-		"fdf.h": "c"
+		"fdf.h": "c",
+		"iosfwd": "c",
+		"iterator": "c"
 	}
 }

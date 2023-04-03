@@ -6,7 +6,7 @@
 /*   By: pramos-m <pramos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:44:52 by pramos-m          #+#    #+#             */
-/*   Updated: 2023/03/12 20:28:07 by pramos-m         ###   ########.fr       */
+/*   Updated: 2023/04/03 16:33:52 by pramos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 //Window
 #define WIN_WIDTH	(int)1920
 #define WIN_HEIGHT	(int)1080
+#define BUFFER_TAMAÑO 500000
 
 // Error Codes
 # define ERRCODE0	(int)0
