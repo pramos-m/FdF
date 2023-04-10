@@ -35,7 +35,7 @@ $>
 
 ```shell
 # Clone the repository:
-$> git clone --recursive https://github.com/fv99/fdf.git
+$> git clone --recursive git@github.com:pramos-m/FdF.git
 
 # Compile:
 $> make
