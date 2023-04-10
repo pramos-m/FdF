@@ -28,7 +28,7 @@ $>
 ```
 **Produces the following output:**
 
-![screenshot](https://user-images.githubusercontent.com/108353744/226677024-10c8a229-8c5e-46ab-abb0-9da35c72c9b3.png)
+![screenshot]()
 
 ## **Usage:**
 *This program was compiled and tested on Linux.*
